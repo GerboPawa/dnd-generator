@@ -1,2 +1,1 @@
-# dnd-generator
-Generatore di personaggi D&amp;D per Astral Archives
+# D&D Character Generator for Astral Archives
