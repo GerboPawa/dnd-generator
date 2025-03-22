@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { generateCharacterSheetPDF, formatCharacterForPDF, CharacterSheetSection, StatDisplay, getAbilityModifier } from '../utils/pdfUtils';
 
 const CharacterSheetPage = ({ character }) => {
   const navigate = useNavigate();
