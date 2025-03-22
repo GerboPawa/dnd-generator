@@ -171,7 +171,7 @@ const CharacterSheetPage = ({ character }) => {
       Ranger: {
         level1: ['Animal Friendship', 'Cure Wounds', 'Hunters Mark'],
         level2: ['Barkskin', 'Lesser Restoration', 'Pass without Trace']
-}
+},
       Sorcerer: {
         cantrips: ['Dancing Lights', 'Fire Bolt', 'Light', 'Mage Hand', 'Prestidigitation'],
         level1: ['Burning Hands', 'Charm Person', 'Magic Missile', 'Shield', 'Sleep'],
