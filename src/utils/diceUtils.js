@@ -175,9 +175,6 @@ const getPointBuyCost = (value) => {
 const getAbilityModifier = (score) => {
   return Math.floor((score - 10) / 2);
 };
-export const getAbilityModifier = (score) => {
-  return Math.floor((score - 10) / 2);
-};
 export {
   rollDie,
   roll4d6DropLowest,
@@ -186,4 +183,5 @@ export {
   generateStandardArray,
   optimizeStatsForClass,
   getPointBuyCost,
+  getAbilityModifier
 };
