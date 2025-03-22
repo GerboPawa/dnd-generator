@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,10 @@ const CharacterSheetPage = ({ character }) => {
   const { t } = useTranslation();
   const characterSheetRef = useRef(null);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+
+  useEffect(() => {
+    console.log('Dati del personaggio ricevuti:', character); // Aggiungi questo log
+  }, [character]);
 
   // Se non c'è un personaggio, reindirizza alla home
   if (!character) {
