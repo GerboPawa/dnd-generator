@@ -36,10 +36,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: ['node_modules'],
     alias: {
-      'i18next-browser-languagedetector': path.resolve(__dirname, 'node_modules/i18next-browser-languagedetector'),
-      'i18next-http-backend': path.resolve(__dirname, 'node_modules/i18next-http-backend')
+      'i18next-browser-languagedetector': 'i18next-browser-languagedetector',
+      'i18next-http-backend': 'i18next-http-backend'
     }
   },
   plugins: [
