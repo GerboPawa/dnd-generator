@@ -17,13 +17,7 @@ const CharacterSheetPage = ({ character }) => {
       return;
     }
   }, [character, navigate]);
-useEffect(() => {
-    if (!character) {
-      navigate('/');
-      return;
-    }
-    console.log("Character data: ", character); // Aggiungi questo log
-  }, [character, navigate]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
