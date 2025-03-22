@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  environment = { NODE_VERSION = "16" } # oppure 14 o 18, a seconda della tua scelta
+
+[functions]
+  directory = "netlify/functions"
