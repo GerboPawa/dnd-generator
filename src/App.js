@@ -20,6 +20,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage setCharacter={setCharacter} />} />
               <Route path="/selection" element={<SelectionPage setCharacter={setCharacter} />} />
+              {/* Route per la pagina delle statistiche */}
               <Route path="/stats" element={<StatsPage character={character} setCharacter={setCharacter} />} />
               <Route path="/character-sheet" element={<CharacterSheetPage character={character} />} />
             </Routes>
