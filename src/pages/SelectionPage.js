@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 const SelectionPage = ({ setCharacter }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  
+
   const [characterData, setCharacterData] = useState({
     class: '',
     subclass: '',
@@ -87,8 +87,9 @@ const SelectionPage = ({ setCharacter }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Dati del personaggio prima del passaggio:', characterData); // Aggiungi questo log
     setCharacter(characterData);
-    navigate('/stats');
+    navigate('/character-sheet');
   };
 
   const handleBack = () => {
