@@ -7,8 +7,8 @@ import './styles/global.css';
 // Importa i18next e le dipendenze
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from './i18next-browser-languagedetector';
-import HttpApi from './i18next-http-backend';
+import LanguageDetector from './i18next-browser-languagedetector/index.js';
+import HttpApi from './i18next-http-backend/index.js';
 
 // Inizializza i18next
 i18n
