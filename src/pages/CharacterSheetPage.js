@@ -12,14 +12,11 @@ const CharacterSheetPage = ({ character }) => {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
   useEffect(() => {
-    console.log('Dati del personaggio ricevuti:', character); // Aggiungi questo log
-  }, [character]);
-
-  // Se non c'è un personaggio, reindirizza alla home
-  if (!character) {
-    navigate('/');
-    return null;
-  }
+    if (!character) {
+      navigate('/');
+      return;
+    }
+  }, [character, navigate]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
