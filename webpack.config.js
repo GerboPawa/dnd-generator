@@ -35,9 +35,13 @@ module.exports = {
     ]
   },
   resolve: {
-  extensions: ['.js', '.jsx'],
-  modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
-},
+    extensions: ['.js', '.jsx'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    alias: {
+      'i18next-browser-languagedetector': path.resolve(__dirname, 'node_modules/i18next-browser-languagedetector'),
+      'i18next-http-backend': path.resolve(__dirname, 'node_modules/i18next-http-backend')
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
