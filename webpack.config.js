@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -43,10 +44,16 @@ module.exports = {
     }
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ],
+  new HtmlWebpackPlugin({
+    template: './src/index.html'
+  }),
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: 'node_modules/i18next-browser-languagedetector', to: 'i18next-browser-languagedetector' },
+      { from: 'node_modules/i18next-http-backend', to: 'i18next-http-backend' }
+    ]
+  })
+],
   devServer: {
     historyApiFallback: true,
     static: {
