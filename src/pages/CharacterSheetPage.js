@@ -49,11 +49,6 @@ useEffect(() => {
     }
   };
 
-  // Calcola il modificatore di abilità
-  const getAbilityModifier = (score) => {
-    return Math.floor((score - 10) / 2);
-  };
-
   // Calcola il bonus di competenza in base al livello
   const getProficiencyBonus = (level) => {
     if (level < 5) return 2;
