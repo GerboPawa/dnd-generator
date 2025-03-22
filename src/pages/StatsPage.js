@@ -6,6 +6,13 @@ import { useTranslation } from 'react-i18next';
 const StatsPage = ({ character, setCharacter }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!character) {
+      navigate('/');
+      return;
+    }
+  }, [character, navigate]);
   
   const [statMethod, setStatMethod] = useState('standard');
   const [stats, setStats] = useState({
@@ -23,9 +30,9 @@ const StatsPage = ({ character, setCharacter }) => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.5,
         when: "beforeChildren",
         staggerChildren: 0.1
@@ -39,8 +46,8 @@ const StatsPage = ({ character, setCharacter }) => {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
       transition: { duration: 0.5 }
     }
@@ -48,13 +55,13 @@ const StatsPage = ({ character, setCharacter }) => {
 
   const diceVariants = {
     initial: { rotate: 0, scale: 1 },
-    animate: { 
-      rotate: 360, 
+    animate: {
+      rotate: 360,
       scale: [1, 1.2, 1],
-      transition: { 
+      transition: {
         duration: 1,
         repeat: 2,
-        ease: "easeInOut" 
+        ease: "easeInOut"
       }
     }
   };
