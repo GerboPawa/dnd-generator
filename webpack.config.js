@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -37,23 +36,13 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: ['node_modules'],
-    alias: {
-      'i18next-browser-languagedetector': 'i18next-browser-languagedetector',
-      'i18next-http-backend': 'i18next-http-backend'
-    }
+    modules: ['node_modules']
   },
   plugins: [
-  new HtmlWebpackPlugin({
-    template: './src/index.html'
-  }),
-  new CopyWebpackPlugin({
-    patterns: [
-      { from: 'node_modules/i18next-browser-languagedetector', to: 'i18next-browser-languagedetector' },
-      { from: 'node_modules/i18next-http-backend', to: 'i18next-http-backend' }
-    ]
-  })
-],
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     static: {
