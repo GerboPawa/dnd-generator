@@ -844,7 +844,7 @@ const CharacterSheetPage = ({ character }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isGeneratingPDF ? t(1characterSheet.generating') : t('characterSheet.downloadPDF')}
+          {isGeneratingPDF ? t('characterSheet.generating') : t('characterSheet.downloadPDF')}
         </motion.button>
       </motion.div>
 
