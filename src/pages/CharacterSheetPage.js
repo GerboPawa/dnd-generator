@@ -673,7 +673,7 @@ const CharacterSheetPage = ({ character }) => {
       traits.push(...racialTraits[character.race]);
     }
 
-    // Aggiungi tratti della sottorazza se presente
+        // Aggiungi tratti della sottorazza se presente
     if (character.subrace) {
       const subracialTraits = {
         'Hill Dwarf': ['Dwarven Toughness'],
@@ -692,6 +692,7 @@ const CharacterSheetPage = ({ character }) => {
         traits.push(...subracialTraits[character.subrace]);
       }
     }
+
 
     return traits;
   };
@@ -1010,7 +1011,7 @@ const CharacterSheetPage = ({ character }) => {
                         {isProficient && '✓'}
                       </div>
                       <div style={{ flex: 1, fontSize: '0.9rem' }}>
-                        {t(`skills.${skill.name}`)} ({t(`stats.${skill.ability}`).charAt(0).toUpperCase()})
+                        {t(`skills.${skill.name}`)} ({t(`stats.${ability}`).charAt(0).toUpperCase()})
                       </div>
                       <div style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>
                         {modifier >= 0 ? `+${modifier}` : modifier}
