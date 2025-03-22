@@ -18,9 +18,9 @@ const SelectionPage = ({ setCharacter }) => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.5,
         when: "beforeChildren",
         staggerChildren: 0.1
@@ -34,8 +34,8 @@ const SelectionPage = ({ setCharacter }) => {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
       transition: { duration: 0.5 }
     }
@@ -43,7 +43,7 @@ const SelectionPage = ({ setCharacter }) => {
 
   // Dati di esempio per le opzioni
   const classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
-  
+
   const subclasses = {
     Barbarian: ['Path of the Berserker', 'Path of the Totem Warrior'],
     Bard: ['College of Lore', 'College of Valor'],
@@ -58,9 +58,9 @@ const SelectionPage = ({ setCharacter }) => {
     Warlock: ['The Archfey', 'The Fiend', 'The Great Old One'],
     Wizard: ['School of Abjuration', 'School of Conjuration', 'School of Divination', 'School of Enchantment', 'School of Evocation', 'School of Illusion', 'School of Necromancy', 'School of Transmutation']
   };
-  
+
   const races = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human', 'Tiefling'];
-  
+
   const subraces = {
     Dwarf: ['Hill Dwarf', 'Mountain Dwarf'],
     Elf: ['High Elf', 'Wood Elf', 'Dark Elf (Drow)'],
@@ -69,9 +69,9 @@ const SelectionPage = ({ setCharacter }) => {
     Human: ['Standard', 'Variant'],
     // Le altre razze non hanno sottorazze nel PHB base
   };
-  
+
   const backgrounds = ['Acolyte', 'Charlatan', 'Criminal', 'Entertainer', 'Folk Hero', 'Guild Artisan', 'Hermit', 'Noble', 'Outlander', 'Sage', 'Sailor', 'Soldier', 'Urchin'];
-  
+
   const levels = Array.from({ length: 20 }, (_, i) => i + 1);
 
   const handleChange = (e) => {
@@ -87,9 +87,8 @@ const SelectionPage = ({ setCharacter }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Dati del personaggio prima del passaggio:', characterData); // Aggiungi questo log
     setCharacter(characterData);
-    navigate('/character-sheet');
+    navigate('/stats');
   };
 
   const handleBack = () => {
@@ -97,7 +96,7 @@ const SelectionPage = ({ setCharacter }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="container"
       variants={containerVariants}
       initial="hidden"
@@ -107,114 +106,114 @@ const SelectionPage = ({ setCharacter }) => {
       <motion.h1 className="text-center mb-4" variants={itemVariants}>
         {t('selection.title')}
       </motion.h1>
-      
+
       <motion.div className="card" variants={itemVariants}>
         <form onSubmit={handleSubmit}>
           <div className="grid">
             {/* Class Selection */}
             <motion.div className="form-group" variants={itemVariants}>
               <label htmlFor="class">{t('selection.class')}</label>
-              <select 
-                id="class" 
-                name="class" 
-                value={characterData.class} 
+              <select
+                id="class"
+                name="class"
+                value={characterData.class}
                 onChange={handleChange}
                 required
               >
                 <option value="">{t('selection.selectClass')}</option>
                 {classes.map(c => (
-                  <option key={c} value={c}>{t(`classes.${c.toLowerCase()}`)}</option>
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </motion.div>
-            
+
             {/* Subclass Selection (conditional) */}
             {characterData.class && subclasses[characterData.class] && (
-              <motion.div 
-                className="form-group" 
+              <motion.div
+                className="form-group"
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <label htmlFor="subclass">{t('selection.subclass')}</label>
-                <select 
-                  id="subclass" 
-                  name="subclass" 
-                  value={characterData.subclass} 
+                <select
+                  id="subclass"
+                  name="subclass"
+                  value={characterData.subclass}
                   onChange={handleChange}
                 >
                   <option value="">{t('selection.selectSubclass')}</option>
                   {subclasses[characterData.class].map(sc => (
-                    <option key={sc} value={sc}>{t(`subclasses.${sc.toLowerCase().replace(/\s+/g, '_')}`)}</option>
+                    <option key={sc} value={sc}>{sc}</option>
                   ))}
                 </select>
               </motion.div>
             )}
-            
+
             {/* Race Selection */}
             <motion.div className="form-group" variants={itemVariants}>
               <label htmlFor="race">{t('selection.race')}</label>
-              <select 
-                id="race" 
-                name="race" 
-                value={characterData.race} 
+              <select
+                id="race"
+                name="race"
+                value={characterData.race}
                 onChange={handleChange}
                 required
               >
                 <option value="">{t('selection.selectRace')}</option>
                 {races.map(r => (
-                  <option key={r} value={r}>{t(`races.${r.toLowerCase()}`)}</option>
+                  <option key={r} value={r}>{r}</option>
                 ))}
               </select>
             </motion.div>
-            
+
             {/* Subrace Selection (conditional) */}
             {characterData.race && subraces[characterData.race] && (
-              <motion.div 
-                className="form-group" 
+              <motion.div
+                className="form-group"
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <label htmlFor="subrace">{t('selection.subrace')}</label>
-                <select 
-                  id="subrace" 
-                  name="subrace" 
-                  value={characterData.subrace} 
+                <select
+                  id="subrace"
+                  name="subrace"
+                  value={characterData.subrace}
                   onChange={handleChange}
                 >
                   <option value="">{t('selection.selectSubrace')}</option>
                   {subraces[characterData.race].map(sr => (
-                    <option key={sr} value={sr}>{t(`subraces.${sr.toLowerCase().replace(/\s+/g, '_')}`)}</option>
+                    <option key={sr} value={sr}>{sr}</option>
                   ))}
                 </select>
               </motion.div>
             )}
-            
+
             {/* Background Selection */}
             <motion.div className="form-group" variants={itemVariants}>
               <label htmlFor="background">{t('selection.background')}</label>
-              <select 
-                id="background" 
-                name="background" 
-                value={characterData.background} 
+              <select
+                id="background"
+                name="background"
+                value={characterData.background}
                 onChange={handleChange}
                 required
               >
                 <option value="">{t('selection.selectBackground')}</option>
                 {backgrounds.map(b => (
-                  <option key={b} value={b}>{t(`backgrounds.${b.toLowerCase()}`)}</option>
+                  <option key={b} value={b}>{b}</option>
                 ))}
               </select>
             </motion.div>
-            
+
             {/* Level Selection */}
             <motion.div className="form-group" variants={itemVariants}>
               <label htmlFor="level">{t('selection.level')}</label>
-              <select 
-                id="level" 
-                name="level" 
-                value={characterData.level} 
+              <select
+                id="level"
+                name="level"
+                value={characterData.level}
                 onChange={handleChange}
                 required
               >
@@ -224,19 +223,19 @@ const SelectionPage = ({ setCharacter }) => {
               </select>
             </motion.div>
           </div>
-          
+
           <motion.div className="flex flex-between mt-4" variants={itemVariants}>
-            <motion.button 
-              type="button" 
+            <motion.button
+              type="button"
               onClick={handleBack}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {t('common.back')}
             </motion.button>
-            
-            <motion.button 
-              type="submit" 
+
+            <motion.button
+              type="submit"
               className="primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
